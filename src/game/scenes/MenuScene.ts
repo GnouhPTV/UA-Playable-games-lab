@@ -10,7 +10,7 @@ export class MenuScene extends Phaser.Scene {
     const height = this.scale.height;
 
     // Background
-    this.add.rectangle(width / 2, height / 2, width, height, 0x2563eb);
+    this.add.rectangle(width / 2, height / 2, width, height, 800080);
 
     // Title
     this.add
@@ -22,13 +22,13 @@ export class MenuScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, 155, "Choose a game to study", {
+      .text(width / 2, 155, "Build playable ads step by step", {
         fontSize: "16px",
         color: "#dbeafe",
       })
       .setOrigin(0.5);
 
-    this.createMenuButton(width / 2, 240, "Tap Monster", () => {
+    this.createMenuButton(width / 2, 240, "Tap Monster Game", () => {
       console.log("Tap Monster clicked");
     });
 
@@ -43,6 +43,12 @@ export class MenuScene extends Phaser.Scene {
     this.createMenuButton(width / 2, 480, "Gem Collector", () => {
       console.log("Gem Collector clicked");
     });
+    this.add
+      .text(width / 2, 600, "v0.1.0 - Project Foundation", {
+        fontSize: "16px",
+        color: "#dbeafe",
+      })
+      .setOrigin(0.5);
   }
 
   private createMenuButton(
