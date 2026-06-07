@@ -2,6 +2,28 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [1.0.0] - Portfolio Release
+
+### Added
+
+- Added portfolio-ready project documentation.
+- Added final project summary for CV and GitHub portfolio use.
+- Added test plan documentation.
+- Added screenshots folder for project preview images.
+- Added final portfolio highlights in README.
+- Added documentation links for test plan, MRAID notes, export notes, and portfolio summary.
+
+### Changed
+
+- Updated README project status to mark v1.0.0 as complete.
+- Improved project explanation for recruiters, beginner developers, and portfolio reviewers.
+- Finalized the first stable portfolio release.
+
+### Notes
+
+- This release is the first portfolio-ready milestone.
+- The project remains a learning project and does not claim full production ad network deployment.
+
 ## [0.9.0] - MRAID & Ad Network Notes
 
 ### Added

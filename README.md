@@ -4,6 +4,19 @@ A beginner-friendly HTML5 playable ads learning project built with **Vite**, **T
 
 This project contains multiple small playable ad prototypes designed to help me learn the core mechanics used in mobile UA playable ads: tap interaction, drag control, collision, merge mechanics, rewards, timers, end cards, CTA buttons, and HTML5 export.
 
+## Portfolio Highlights
+
+This project demonstrates my ability to build interactive HTML5 playable ad prototypes from scratch.
+
+Key highlights:
+
+- Built with Phaser 3 and TypeScript.
+- Includes four playable game prototypes.
+- Uses reusable scene architecture.
+- Includes end card, CTA, replay, timer, score, rewards, and export flow.
+- Uses Git version tags from v0.1.0 to v1.0.0.
+- Includes MRAID and ad network learning notes.
+
 ---
 
 ## Project Status
@@ -20,6 +33,7 @@ This project contains multiple small playable ad prototypes designed to help me 
 | v0.7.0  | Portfolio Polish         | Done   |
 | v0.8.0  | Playable Framework       | Done   |
 | v0.9.0  | MRAID / Ad Network Notes | Done   |
+| v1.0.0  | Portfolio Release        | Done   |
 
 ---
 
@@ -497,3 +511,29 @@ This project is still a learning project.
 
 The exported playable currently runs locally and demonstrates the structure of an HTML5 playable ad.  
 Production deployment may require MRAID, network-specific validation, and file size optimization.
+
+---
+
+## Portfolio Release
+
+`v1.0.0` is the first portfolio-ready release of this project.
+
+This release includes:
+
+- Four playable ad prototypes
+- Shared scene architecture
+- HTML5 export workflow
+- Documentation for MRAID and ad network readiness
+- Screenshots
+- Test plan
+- Portfolio summary
+- Complete changelog
+- Versioned Git workflow
+
+See also:
+
+- `docs/test-plan.md`
+- `docs/portfolio-summary.md`
+- `docs/mraid-notes.md`
+- `docs/ad-network-checklist.md`
+- `docs/playable-export-notes.md`

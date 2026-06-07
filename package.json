@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "description": "A Phaser 3 and TypeScript learning project for building UA playable ads prototypes.",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
