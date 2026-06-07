@@ -3,7 +3,9 @@ dist/
 .env
 .env.local
 *.log
-.vscode/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
 .idea/
 .DS_Store
 Thumbs.db

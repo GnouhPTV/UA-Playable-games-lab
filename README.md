@@ -1,30 +1,39 @@
-# UA Playable Games Lab
+## v0.2.0 - Tap Monster Game
 
-A beginner-friendly project for learning UA playable ads with Vite, TypeScript, and Phaser 3.
+Tap Monster is the first complete playable ad prototype in this project.
 
-## What is UA Playable Ads?
+### Gameplay Flow
 
-UA means User Acquisition. Playable ads are interactive ads that let users try a small version of a game before installing or visiting a product page.
+1. The player opens the main menu.
+2. The player chooses **Tap Monster Game**.
+3. A monster appears on the screen.
+4. The player taps/clicks the monster.
+5. The score increases.
+6. The monster moves to a random position.
+7. A countdown timer runs.
+8. When time is over, the game shows an end card.
+9. The player can click:
+   - **View Portfolio** CTA button
+   - **Play Again**
+   - **Menu**
 
-## Tech Stack
+### Concepts Learned
 
-- Vite
-- TypeScript
-- Phaser 3
-- HTML/CSS
+- Phaser Scene flow
+- Click/tap interaction with `pointerdown`
+- Score system
+- Timer countdown with `this.time.addEvent`
+- Random object positioning
+- Tween animation
+- End card scene
+- Passing data between scenes
+- CTA button behavior
 
-## Version Roadmap
+### Important Files
 
-- v0.1.0 - Project Foundation
-- v0.2.0 - Tap Monster Game
-- v0.3.0 - Runner Gate Game
-- v0.4.0 - Merge Cannon Game
-- v0.5.0 - Gem Collector Game
-- v0.6.0 - Export HTML5 Playable
-- v1.0.0 - Portfolio Ready Release
-
-## How to Run
-
-```bash
-npm install
-npm run dev
+```text
+src/game/scenes/MenuScene.ts
+src/game/scenes/TapMonsterScene.ts
+src/game/scenes/EndCardScene.ts
+src/game/config.ts
+```
