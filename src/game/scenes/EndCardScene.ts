@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import { SceneKeys } from '../sceneKeys';
+import { GameColors } from '../colors';
+import { createTextButton } from '../ui/createTextButton';
 
 type EndCardData = {
   finalScore?: number;
@@ -11,11 +14,11 @@ export class EndCardScene extends Phaser.Scene {
   private finalScore = 0;
   private title = 'Great Job!';
   private message = 'You finished the playable!';
-  private replayScene = 'TapMonsterScene';
+  private replayScene: string = SceneKeys.TapMonster;
   private ctaUrl = 'https://github.com/GnouhPTV/UA-Playable-games-lab';
 
   constructor() {
-    super('EndCardScene');
+    super(SceneKeys.EndCard);
   }
 
   init(data: EndCardData) {
@@ -24,7 +27,7 @@ export class EndCardScene extends Phaser.Scene {
     this.finalScore = data.finalScore ?? 0;
     this.title = data.title ?? 'Great Job!';
     this.message = data.message ?? 'You finished the playable!';
-    this.replayScene = data.replayScene ?? 'TapMonsterScene';
+    this.replayScene = data.replayScene ?? SceneKeys.TapMonster;
   }
 
   create() {
@@ -74,47 +77,43 @@ export class EndCardScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    this.createButton(width / 2, 420, 'View Portfolio', 0x22c55e, '#0f172a', () => {
-      this.handleCtaClick();
+    createTextButton(this, {
+      x: width / 2,
+      y: 420,
+      width: 240,
+      height: 54,
+      label: 'View Portfolio',
+      backgroundColor: GameColors.green,
+      textColor: '#0f172a',
+      onClick: () => {
+        this.handleCtaClick();
+      },
     });
 
-    this.createButton(width / 2, 490, 'Play Again', 0xffffff, '#0f172a', () => {
-      this.scene.start(this.replayScene);
+    createTextButton(this, {
+      x: width / 2,
+      y: 490,
+      width: 240,
+      height: 54,
+      label: 'Play Again',
+      backgroundColor: GameColors.white,
+      textColor: '#0f172a',
+      onClick: () => {
+        this.scene.start(this.replayScene);
+      },
     });
 
-    this.createButton(width / 2, 560, 'Menu', 0x334155, '#ffffff', () => {
-      this.scene.start('MenuScene');
-    });
-  }
-
-  private createButton(
-    x: number,
-    y: number,
-    label: string,
-    backgroundColor: number,
-    textColor: string,
-    onClick: () => void,
-  ) {
-    const button = this.add.rectangle(x, y, 240, 54, backgroundColor, 1);
-    button.setInteractive({ useHandCursor: true });
-
-    this.add
-      .text(x, y, label, {
-        fontSize: '20px',
-        color: textColor,
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5);
-
-    button.on('pointerdown', () => {
-      this.tweens.add({
-        targets: button,
-        scaleX: 0.95,
-        scaleY: 0.95,
-        duration: 80,
-        yoyo: true,
-        onComplete: onClick,
-      });
+    createTextButton(this, {
+      x: width / 2,
+      y: 560,
+      width: 240,
+      height: 54,
+      label: 'Menu',
+      backgroundColor: GameColors.slate,
+      textColor: '#ffffff',
+      onClick: () => {
+        this.scene.start(SceneKeys.Menu);
+      },
     });
   }
 

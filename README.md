@@ -192,3 +192,26 @@ const damage = cannon.level \* 8;
 Higher-level cannons are stronger, which makes the merge mechanic meaningful.
 
 The exported or final playable flow should be short, visual, and easy to understand within a few seconds.
+
+## v0.4.5 - Refactor & Architecture
+
+This version focuses on cleaning up the project architecture without adding a new game.
+
+### What Changed
+
+- Added shared scene key constants.
+- Added shared game color constants.
+- Added reusable text button helper.
+- Added reusable floating text helper.
+- Started replacing hardcoded scene names with `SceneKeys`.
+- Improved code readability and reduced repeated button code.
+
+### Why This Matters
+
+As the project grows, repeated code becomes harder to maintain.
+
+Before refactor:
+
+```ts
+this.scene.start('MenuScene');
+```

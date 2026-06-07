@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { SceneKeys } from '../sceneKeys';
 
 type SlotData = {
   index: number;
@@ -55,7 +56,7 @@ export class MergeCannonScene extends Phaser.Scene {
   private maxCannonLevel = 5;
 
   constructor() {
-    super('MergeCannonScene');
+    super(SceneKeys.MergeCannon);
   }
 
   create() {
@@ -576,7 +577,7 @@ export class MergeCannonScene extends Phaser.Scene {
       this.enemySpawnEvent?.remove(false);
       this.cannonShootEvent?.remove(false);
       this.countdownEvent?.remove(false);
-      this.scene.start('MenuScene');
+      this.scene.start(SceneKeys.Menu);
     });
   }
 
@@ -697,11 +698,11 @@ export class MergeCannonScene extends Phaser.Scene {
 
     // Small delay so the player can see the last feedback
     this.time.delayedCall(500, () => {
-      this.scene.start('EndCardScene', {
+      this.scene.start(SceneKeys.EndCard, {
         finalScore: this.gems,
         title: reason === "Time's Up!" ? 'Defense Complete!' : 'Base Destroyed!',
         message: `Coins: ${this.coins} | Gems: ${this.gems}`,
-        replayScene: 'MergeCannonScene',
+        replayScene: SceneKeys.MergeCannon,
       });
     });
   }

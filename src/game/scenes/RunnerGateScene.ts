@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { SceneKeys } from '../sceneKeys';
 
 type GateValue = '+10' | '+20' | '+50' | 'x2' | '-5';
 
@@ -29,7 +30,7 @@ export class RunnerGateScene extends Phaser.Scene {
   private gateSpeed = 170;
 
   constructor() {
-    super('RunnerGateScene');
+    super(SceneKeys.RunnerGate);
   }
 
   create() {
@@ -352,11 +353,11 @@ export class RunnerGateScene extends Phaser.Scene {
     this.spawnEvent?.remove(false);
     this.countdownEvent?.remove(false);
 
-    this.scene.start('EndCardScene', {
+    this.scene.start(SceneKeys.EndCard, {
       finalScore: this.score,
       title: 'Runner Finished!',
       message: 'You chose gates and changed your score.',
-      replayScene: 'RunnerGateScene',
+      replayScene: SceneKeys.RunnerGate,
     });
   }
 
@@ -375,7 +376,7 @@ export class RunnerGateScene extends Phaser.Scene {
     button.on('pointerdown', () => {
       this.spawnEvent?.remove(false);
       this.countdownEvent?.remove(false);
-      this.scene.start('MenuScene');
+      this.scene.start(SceneKeys.Menu);
     });
   }
 }

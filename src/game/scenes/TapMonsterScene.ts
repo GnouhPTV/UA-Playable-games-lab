@@ -1,4 +1,5 @@
 import Phaser from 'phaser';
+import { SceneKeys } from '../sceneKeys';
 
 export class TapMonsterScene extends Phaser.Scene {
   private score = 0;
@@ -11,7 +12,7 @@ export class TapMonsterScene extends Phaser.Scene {
   private countdownEvent?: Phaser.Time.TimerEvent;
 
   constructor() {
-    super('TapMonsterScene');
+    super(SceneKeys.TapMonster);
   }
 
   create() {
@@ -189,7 +190,7 @@ export class TapMonsterScene extends Phaser.Scene {
       .setOrigin(0.5);
 
     button.on('pointerdown', () => {
-      this.scene.start('MenuScene');
+      this.scene.start(SceneKeys.Menu);
     });
   }
 
@@ -203,8 +204,9 @@ export class TapMonsterScene extends Phaser.Scene {
     this.monster.setVisible(false);
 
     // Move to EndCardScene and pass the final score
-    this.scene.start('EndCardScene', {
+    this.scene.start(SceneKeys.EndCard, {
       finalScore: this.score,
+      replayScene: SceneKeys.TapMonster,
     });
   }
 }

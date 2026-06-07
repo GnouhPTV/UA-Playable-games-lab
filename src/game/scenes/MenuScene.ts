@@ -1,8 +1,11 @@
+import { SceneKeys } from '../sceneKeys';
+import { GameColors } from '../colors';
+import { createTextButton } from '../ui/createTextButton';
 import Phaser from 'phaser';
 
 export class MenuScene extends Phaser.Scene {
   constructor() {
-    super('MenuScene');
+    super(SceneKeys.Menu);
   }
 
   create() {
@@ -28,41 +31,63 @@ export class MenuScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    this.createMenuButton(width / 2, 240, 'Tap Monster Game', () => {
-      this.scene.start('TapMonsterScene');
+    createTextButton(this, {
+      x: width / 2,
+      y: 240,
+      width: 260,
+      height: 56,
+      label: 'Tap Monster Game',
+      backgroundColor: GameColors.white,
+      textColor: '#2563eb',
+      onClick: () => {
+        this.scene.start(SceneKeys.TapMonster);
+      },
     });
 
-    this.createMenuButton(width / 2, 320, 'Runner Gate', () => {
-      this.scene.start('RunnerGateScene');
+    createTextButton(this, {
+      x: width / 2,
+      y: 320,
+      width: 260,
+      height: 56,
+      label: 'Runner Gate',
+      backgroundColor: GameColors.white,
+      textColor: '#2563eb',
+      onClick: () => {
+        this.scene.start(SceneKeys.RunnerGate);
+      },
     });
 
-    this.createMenuButton(width / 2, 400, 'Merge Cannon', () => {
-      this.scene.start('MergeCannonScene');
+    createTextButton(this, {
+      x: width / 2,
+      y: 400,
+      width: 260,
+      height: 56,
+      label: 'Merge Cannon',
+      backgroundColor: GameColors.white,
+      textColor: '#2563eb',
+      onClick: () => {
+        this.scene.start(SceneKeys.MergeCannon);
+      },
     });
 
-    this.createMenuButton(width / 2, 480, 'Gem Collector', () => {
-      console.log('Gem Collector clicked');
+    createTextButton(this, {
+      x: width / 2,
+      y: 480,
+      width: 260,
+      height: 56,
+      label: 'Gem Collector',
+      backgroundColor: GameColors.white,
+      textColor: '#2563eb',
+      onClick: () => {
+        console.log('Gem Collector coming soon');
+      },
     });
+
     this.add
       .text(width / 2, 600, 'v0.1.0 - Project Foundation', {
         fontSize: '16px',
         color: '#dbeafe',
       })
       .setOrigin(0.5);
-  }
-
-  private createMenuButton(x: number, y: number, label: string, onClick: () => void) {
-    const button = this.add.rectangle(x, y, 260, 56, 0xffffff, 1);
-    button.setInteractive({ useHandCursor: true });
-
-    this.add
-      .text(x, y, label, {
-        fontSize: '20px',
-        color: '#2563eb',
-        fontStyle: 'bold',
-      })
-      .setOrigin(0.5);
-
-    button.on('pointerdown', onClick);
   }
 }

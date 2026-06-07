@@ -2,6 +2,26 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.4.5] - Refactor & Architecture
+
+### Added
+
+- Added shared scene key constants.
+- Added shared game color constants.
+- Added reusable text button helper.
+- Added reusable floating text helper.
+
+### Changed
+
+- Started replacing hardcoded scene name strings with shared `SceneKeys`.
+- Refactored repeated button creation logic into a shared helper.
+- Improved code readability for future playable game development.
+
+### Notes
+
+- This version does not add a new game.
+- The goal is to improve project structure and prepare the codebase for future playable ads.
+
 ## [0.4.0] - Merge Cannon Game
 
 ### Added
