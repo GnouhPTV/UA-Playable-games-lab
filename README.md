@@ -1,387 +1,426 @@
 # UA Playable Games Lab
 
-A beginner-friendly project for learning UA playable ads with Vite, TypeScript, and Phaser 3.
+A beginner-friendly HTML5 playable ads learning project built with **Vite**, **TypeScript**, and **Phaser 3**.
+
+This project contains multiple small playable ad prototypes designed to help me learn the core mechanics used in mobile UA playable ads: tap interaction, drag control, collision, merge mechanics, rewards, timers, end cards, CTA buttons, and HTML5 export.
+
+---
+
+## Project Status
+
+| Version | Feature                 | Status      |
+| ------- | ----------------------- | ----------- |
+| v0.1.0  | Project Foundation      | Done        |
+| v0.2.0  | Tap Monster Game        | Done        |
+| v0.3.0  | Runner Gate Game        | Done        |
+| v0.4.0  | Merge Cannon Game       | Done        |
+| v0.4.5  | Refactor & Architecture | Done        |
+| v0.5.0  | Gem Collector Game      | Done        |
+| v0.6.0  | Export HTML5 Playable   | Done        |
+| v0.7.0  | Portfolio Polish        | In Progress |
+
+---
 
 ## What is UA Playable Ads?
 
-UA means User Acquisition. Playable ads are interactive ads that let users try a small version of a game before installing or visiting a product page.
+UA means **User Acquisition**.
+
+Playable ads are interactive ads that let users try a small playable experience before they install a game, visit a landing page, or click a CTA.
+
+A typical playable ad includes:
+
+- Intro screen
+- Short interactive gameplay
+- Reward feedback
+- Timer or goal
+- End card
+- CTA button
+- Replay button
+
+---
 
 ## Tech Stack
 
 - Vite
 - TypeScript
 - Phaser 3
-- HTML/CSS
+- HTML
+- CSS
+- JSZip
+- Git / GitHub
 
-## Version Roadmap
+---
 
-- v0.1.0 - Project Foundation
-- v0.2.0 - Tap Monster Game
-- v0.3.0 - Runner Gate Game
-- v0.4.0 - Merge Cannon Game
-- v0.5.0 - Gem Collector Game
-- v0.6.0 - Export HTML5 Playable
-- v1.0.0 - Portfolio Ready Release
+## Features
+
+### Playable Game Prototypes
+
+- Tap Monster
+- Runner Gate
+- Merge Cannon
+- Gem Collector
+
+### Gameplay Mechanics
+
+- Tap/click interaction
+- Drag movement
+- Drag-and-drop merge
+- Collision detection
+- Projectile targeting
+- Enemy HP
+- Reward system
+- Timer system
+- End card flow
+- CTA button
+- Replay button
+
+### Export
+
+- Export Tap Monster as standalone HTML5 ZIP
+- Generated files:
+  - `index.html`
+  - `style.css`
+  - `playable.js`
+  - `README_EXPORT.txt`
+
+---
+
+## Screenshots
+
+> Screenshots will be added as the project becomes portfolio-ready.
+
+### Main Menu
+
+![Main Menu](screenshots/menu.png)
+
+### Tap Monster
+
+![Tap Monster](screenshots/tap-monster.png)
+
+### Runner Gate
+
+![Runner Gate](screenshots/runner-gate.png)
+
+### Merge Cannon
+
+![Merge Cannon](screenshots/merge-cannon.png)
+
+### Gem Collector
+
+![Gem Collector](screenshots/gem-collector.png)
+
+---
 
 ## How to Run
 
+Install dependencies:
+
 ```bash
 npm install
+```
+
+Run development server:
+
+```bash
 npm run dev
 ```
 
-## v0.2.0 - Tap Monster Game
+Build project:
 
-Tap Monster is the first complete playable ad prototype in this project.
+```bash
+npm run build
+```
 
-### Gameplay Flow
+---
 
-1. The player opens the main menu.
-2. The player chooses **Tap Monster Game**.
-3. A monster appears on the screen.
-4. The player taps/clicks the monster.
-5. The score increases.
-6. The monster moves to a random position.
-7. A countdown timer runs.
-8. When time is over, the game shows an end card.
-9. The player can click:
-   - **View Portfolio** CTA button
-   - **Play Again**
-   - **Menu**
+## Folder Structure
 
-### Concepts Learned
+```text
+ua-playable-games-lab/
+|-- screenshots/
+|-- src/
+|   |-- main.ts
+|   |-- styles.css
+|   `-- game/
+|       |-- colors.ts
+|       |-- config.ts
+|       |-- sceneKeys.ts
+|       |-- scenes/
+|       |   |-- MenuScene.ts
+|       |   |-- TapMonsterScene.ts
+|       |   |-- RunnerGateScene.ts
+|       |   |-- MergeCannonScene.ts
+|       |   |-- GemCollectorScene.ts
+|       |   `-- EndCardScene.ts
+|       |-- systems/
+|       |   `-- ExportSystem.ts
+|       `-- ui/
+|           |-- createTextButton.ts
+|           `-- showFloatingText.ts
+|-- README.md
+|-- CHANGELOG.md
+|-- package.json
+`-- vite.config.ts
+```
 
-- Phaser Scene flow
-- Click/tap interaction with `pointerdown`
+---
+
+## Game Prototypes
+
+### v0.2.0 - Tap Monster Game
+
+Tap Monster teaches the most basic playable ad interaction.
+
+#### Flow
+
+1. Player opens the main menu.
+2. Player chooses Tap Monster.
+3. Monster appears on screen.
+4. Player taps the monster.
+5. Score increases.
+6. Monster moves to a random position.
+7. Timer counts down.
+8. End card appears.
+9. Player can replay or click CTA.
+
+#### Concepts
+
+- Phaser scene
+- Tap/click input
 - Score system
-- Timer countdown with `this.time.addEvent`
-- Random object positioning
+- Timer system
+- Random positioning
 - Tween animation
-- End card scene
-- Passing data between scenes
-- CTA button behavior
+- End card
+- CTA button
 
-### Important Files
+### v0.3.0 - Runner Gate Game
 
-```text
-src/game/scenes/MenuScene.ts
-src/game/scenes/TapMonsterScene.ts
-src/game/scenes/EndCardScene.ts
-src/game/config.ts
-```
+Runner Gate teaches drag movement and gate choice mechanics.
 
-## v0.3.0 - Runner Gate Game
+#### Flow
 
-Runner Gate is the second playable ad prototype in this project.
+1. Player drags left and right.
+2. Gates move downward.
+3. Player chooses gates such as +10, +20, +50, x2, -5.
+4. Score changes based on selected gate.
+5. Timer ends.
+6. End card appears.
 
-### Gameplay Flow
+#### Concepts
 
-1. The player opens the main menu.
-2. The player chooses **Runner Gate**.
-3. A player circle appears near the bottom of the screen.
-4. Gates move from the top to the bottom.
-5. The player drags left and right to choose a gate.
-6. Each gate changes the score:
-   - `+10` adds 10 points
-   - `+20` adds 20 points
-   - `+50` adds 50 points
-   - `x2` doubles the current score
-   - `-5` subtracts 5 points
-7. When the timer reaches zero, the game shows the end card.
-8. The player can click:
-   - **View Portfolio**
-   - **Play Again**
-   - **Menu**
+- Drag input
+- Lane movement
+- Spawning objects
+- Collision detection
+- Score modifiers
+- End card reuse
 
-### Concepts Learned
+### v0.4.0 - Merge Cannon Game
 
-- Drag control with pointer input
-- Lane-based movement
-- Object spawning with timer events
-- Moving objects using the `update()` loop
-- Simple collision detection
-- Score modification logic
-- Reusing EndCardScene for multiple games
-- Passing replay scene data to EndCardScene
+Merge Cannon teaches drag-and-drop, merge mechanics, enemy HP, and auto shooting.
 
-### Important Files
+#### Flow
 
-```text
-src/game/scenes/MenuScene.ts
-src/game/scenes/RunnerGateScene.ts
-src/game/scenes/EndCardScene.ts
-src/game/config.ts
-```
+1. Player starts with two level-1 cannons.
+2. Player drags same-level cannons together.
+3. Cannons merge into higher-level cannons.
+4. Enemies spawn and move downward.
+5. Cannons auto shoot projectiles.
+6. Enemies lose HP.
+7. Player earns coins and gems.
+8. Timer or base HP ends the game.
 
-## v0.4.0 - Merge Cannon Game
+#### Concepts
 
-Merge Cannon is the third playable ad prototype in this project.
-
-### Gameplay Flow
-
-1. The player opens the main menu.
-2. The player chooses **Merge Cannon**.
-3. The game starts with two level-1 cannons.
-4. The player can drag one cannon onto another cannon of the same level.
-5. Same-level cannons merge into a higher-level cannon.
-6. Enemies spawn in the enemy path.
-7. Cannons automatically shoot projectiles at the nearest enemy.
-8. Enemies lose HP when hit by projectiles.
-9. When an enemy is defeated, the player earns coins and gems.
-10. If enemies reach the defense line, Base HP decreases.
-11. When the timer ends or Base HP reaches zero, the game shows the end card.
-12. The player can click:
-
-- **View Portfolio**
-- **Play Again**
-- **Menu**
-
-### Concepts Learned
-
-- Drag and drop interaction
+- Drag and drop
 - Merge mechanic
-- Slot-based object placement
-- Enemy spawning
-- Enemy HP system
-- Auto shooting system
-- Projectile movement toward a target
-- Damage calculation
-- Reward system with coins and gems
-- Timer-based game ending
-- Base HP loss condition
-- Reusing EndCardScene for multiple playable games
+- Enemy HP
+- Projectile movement
+- Auto targeting
+- Reward system
+- Base HP
+- Timer ending
 
-### Important Files
+### v0.5.0 - Gem Collector Game
 
-src/game/scenes/MenuScene.ts
-src/game/scenes/MergeCannonScene.ts
-src/game/scenes/EndCardScene.ts
-src/game/config.ts
+Gem Collector teaches collectible objects, respawn logic, and target score conditions.
 
-### Study Notes
+#### Flow
 
-`MergeCannonScene.ts` contains the main merge-defense gameplay logic.
+1. Gems spawn randomly.
+2. Player taps gems.
+3. Gems increase score.
+4. Gems disappear with animation.
+5. New gems respawn.
+6. Player reaches target or timer ends.
+7. End card appears.
 
-Important functions:
+#### Concepts
 
-create()
-createSlots()
-addCannon()
-handleCannonDrop()
-findMergeTarget()
-mergeCannons()
-startEnemySpawner()
-spawnEnemy()
-updateEnemies()
-startCannonShooting()
-fireAllCannons()
-fireCannon()
-findNearestEnemy()
-updateProjectiles()
-damageEnemy()
-handleEnemyKilled()
-handleEnemyReachedBase()
-endGame()
-
-This game combines several important playable ads mechanics: drag/drop, merge, automatic combat, rewards, timer, and end card flow.
-
-The cannon damage is based on cannon level:
-
-const damage = cannon.level \* 8;
-
-Higher-level cannons are stronger, which makes the merge mechanic meaningful.
-
-The exported or final playable flow should be short, visual, and easy to understand within a few seconds.
-
-## v0.4.5 - Refactor & Architecture
-
-This version focuses on cleaning up the project architecture without adding a new game.
-
-### What Changed
-
-- Added shared scene key constants.
-- Added shared game color constants.
-- Added reusable text button helper.
-- Added reusable floating text helper.
-- Started replacing hardcoded scene names with `SceneKeys`.
-- Improved code readability and reduced repeated button code.
-
-### Why This Matters
-
-As the project grows, repeated code becomes harder to maintain.
-
-Before refactor:
-
-```ts
-this.scene.start('MenuScene');
-```
-
-After refactor:
-
-```ts
-this.scene.start(SceneKeys.Menu);
-```
-
-This makes scene navigation safer and easier to update.
-
-Before refactor, each scene had its own button creation code.
-After refactor, scenes can use:
-
-```ts
-createTextButton(this, {
-  x,
-  y,
-  width,
-  height,
-  label,
-  backgroundColor,
-  textColor,
-  onClick,
-});
-```
-
-Concepts Learned:
-
-- Constants
-- Helper functions
-- Code reuse
-- DRY principle
-- Scene key management
-- Basic game architecture
-
-## v0.5.0 - Gem Collector Game
-
-Gem Collector is the fourth playable ad prototype in this project.
-
-### Gameplay Flow
-
-1. The player opens the main menu.
-2. The player chooses **Gem Collector**.
-3. Gems appear randomly inside the collect area.
-4. The player taps/clicks gems to collect them.
-5. Each gem gives a different value, such as `+2`, `+5`, `+10`, or `+20`.
-6. The collected gem score increases.
-7. Collected gems disappear with an animation.
-8. New gems respawn over time.
-9. If the player reaches the target gem score, the game shows the end card.
-10. If the timer reaches zero, the game also shows the end card.
-11. The player can click:
-
-- **View Portfolio**
-- **Play Again**
-- **Menu**
-
-### Concepts Learned
-
-- Collectible object system
-- Tap/click collection mechanic
-- Random object spawning
-- Object respawn with timer events
-- Target score win condition
-- Countdown timer lose/end condition
+- Collectible objects
+- Respawn system
+- Target score
 - Floating reward text
-- Object removal after collection
-- Reusing EndCardScene for another playable game
-- Using shared UI helpers such as `createTextButton` and `showFloatingText`
+- End card reuse
 
-### Important Files
+### v0.6.0 - Export HTML5 Playable
 
-src/game/scenes/MenuScene.ts
-src/game/scenes/GemCollectorScene.ts
-src/game/scenes/EndCardScene.ts
-src/game/config.ts
-src/game/sceneKeys.ts
-src/game/ui/showFloatingText.ts
-src/game/ui/createTextButton.ts
+This version introduces the first standalone playable export.
 
-### Study Notes
-
-`GemCollectorScene.ts` contains the main collectible gameplay logic.
-
-Important functions:
-
-create()
-createPlayArea()
-createHud()
-startGemSpawner()
-spawnGem()
-collectGem()
-removeGem()
-startCountdown()
-endGame()
-createBackButton()
-
-The gem data structure is:
-
-type GemData = {
-id: string;
-value: number;
-body: Phaser.GameObjects.Rectangle;
-label: Phaser.GameObjects.Text;
-};
-
-This means each gem has both visual objects and gameplay data.
-
-The win condition is:
-
-if (this.collectedGems >= this.targetGems) {
-this.endGame("Target Reached!");
-}
-
-This is a common playable ads mechanic because it gives the user a clear short-term goal.
-
-## v0.6.0 - Export HTML5 Playable
-
-This version adds the first export workflow.
-
-### What Export Means
-
-During development, the project runs with Vite.
-
-For playable ads, we need a standalone package that can run from an `index.html` file.
-
-The exported Tap Monster playable includes:
+#### Exported Package
 
 ```text
-index.html
-style.css
-playable.js
-README_EXPORT.txt
+tap-monster-playable.zip
+|-- index.html
+|-- style.css
+|-- playable.js
+`-- README_EXPORT.txt
 ```
 
-Export Flow
+#### Concepts
 
-1. Open the main menu.
-2. Click Export Tap Monster ZIP.
-3. The browser downloads tap-monster-playable.zip.
-4. Extract the ZIP.
-5. Open index.html.
-6. Test the playable locally.
+- HTML5 playable structure
+- JSZip
+- Browser download
+- Standalone playable
+- CTA and replay outside dev environment
 
-Concepts Learned
+---
 
-- HTML5 playable package structure
-- JSZip export workflow
-- Blob download in browser
-- Standalone index.html
-- Separation of HTML, CSS, and JavaScript
-- Intro → Gameplay → End Card flow outside the dev project
-- CTA and replay behavior in exported playable
+## Architecture Notes
 
-Important Files
-src/game/systems/ExportSystem.ts
-src/game/scenes/MenuScene.ts
+### Scene Keys
 
-Notes
+Scene names are stored in one place:
 
-This first export is intentionally simple.
+```ts
+SceneKeys.Menu
+SceneKeys.TapMonster
+SceneKeys.RunnerGate
+SceneKeys.MergeCannon
+SceneKeys.GemCollector
+SceneKeys.EndCard
+```
 
-It exports Tap Monster as a standalone HTML/CSS/JS playable without Phaser so the structure is easier to understand.
+This avoids hardcoded string mistakes.
 
-Real ad networks may require:
+### Shared Colors
 
-- MRAID
-- click URL integration
-- file size limits
-- orientation rules
-- network-specific validation
+Colors are stored in `GameColors`:
+
+```ts
+GameColors.background
+GameColors.green
+GameColors.blue
+GameColors.yellow
+GameColors.red
+```
+
+This makes the code easier to read.
+
+### Shared UI Helpers
+
+Reusable helper functions:
+
+```ts
+createTextButton()
+showFloatingText()
+```
+
+These reduce repeated code across scenes.
+
+---
+
+## Development Workflow
+
+This project uses a version-based Git workflow.
+
+Each feature is developed in a separate branch:
+
+```bash
+git switch main
+git pull origin main
+git switch -c feat/example-feature
+```
+
+After finishing:
+
+```bash
+npm run build
+git add .
+git commit -m "feat: add example feature"
+git tag vX.X.X
+git push -u origin feat/example-feature
+git push origin vX.X.X
+```
+
+Then merge into main:
+
+```bash
+git switch main
+git pull origin main
+git merge feat/example-feature
+git push origin main
+```
+
+---
+
+## Version Roadmap
+
+| Version | Goal                     |
+| ------- | ------------------------ |
+| v0.1.0  | Project Foundation       |
+| v0.2.0  | Tap Monster              |
+| v0.3.0  | Runner Gate              |
+| v0.4.0  | Merge Cannon             |
+| v0.4.5  | Refactor & Architecture  |
+| v0.5.0  | Gem Collector            |
+| v0.6.0  | Export HTML5 Playable    |
+| v0.7.0  | Portfolio Polish         |
+| v0.8.0  | Playable Framework       |
+| v0.9.0  | MRAID / Ad Network Notes |
+| v1.0.0  | Portfolio Release        |
+
+---
+
+## What I Learned
+
+Through this project, I practiced:
+
+- Phaser scene lifecycle
+- TypeScript classes and types
+- Game object management
+- Input events
+- Timers
+- Tweens
+- Collision detection
+- Projectile movement
+- Reward systems
+- End card design
+- HTML5 playable export
+- Git version workflow
+
+---
+
+## Future Improvements
+
+- Add sound effects
+- Add mobile touch polish
+- Add fullscreen preview
+- Export more game templates
+- Add MRAID notes
+- Add playable size validation
+- Add analytics event examples
+- Add screenshots and demo video
+- Deploy live demo with GitHub Pages or Vercel
+
+---
+
+## Disclaimer
+
+This project is for learning and portfolio purposes only.
+
+It does not use copyrighted game assets and does not copy any commercial game. The playable prototypes use simple original shapes and placeholder visuals.
+
+Real ad network deployment may require extra work such as MRAID integration, click tracking, file size limits, orientation rules, and network-specific QA.

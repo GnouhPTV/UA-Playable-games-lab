@@ -2,6 +2,30 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.7.0] - Portfolio Polish
+
+### Added
+
+- Added polished README structure for GitHub portfolio presentation.
+- Added screenshots section with placeholder image paths.
+- Added project status table.
+- Added feature list.
+- Added game prototype summaries.
+- Added architecture notes.
+- Added development workflow documentation.
+- Added future improvement roadmap.
+- Added portfolio-friendly project description.
+
+### Changed
+
+- Improved README readability and organization.
+- Improved project explanation for recruiters and beginner developers.
+
+### Notes
+
+- This version focuses on documentation and portfolio presentation.
+- No gameplay logic was changed.
+
 ## [0.6.0] - Export HTML5 Playable
 
 ### Added
