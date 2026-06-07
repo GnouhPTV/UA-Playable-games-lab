@@ -329,3 +329,59 @@ this.endGame("Target Reached!");
 }
 
 This is a common playable ads mechanic because it gives the user a clear short-term goal.
+
+## v0.6.0 - Export HTML5 Playable
+
+This version adds the first export workflow.
+
+### What Export Means
+
+During development, the project runs with Vite.
+
+For playable ads, we need a standalone package that can run from an `index.html` file.
+
+The exported Tap Monster playable includes:
+
+```text
+index.html
+style.css
+playable.js
+README_EXPORT.txt
+```
+
+Export Flow
+
+1. Open the main menu.
+2. Click Export Tap Monster ZIP.
+3. The browser downloads tap-monster-playable.zip.
+4. Extract the ZIP.
+5. Open index.html.
+6. Test the playable locally.
+
+Concepts Learned
+
+- HTML5 playable package structure
+- JSZip export workflow
+- Blob download in browser
+- Standalone index.html
+- Separation of HTML, CSS, and JavaScript
+- Intro → Gameplay → End Card flow outside the dev project
+- CTA and replay behavior in exported playable
+
+Important Files
+src/game/systems/ExportSystem.ts
+src/game/scenes/MenuScene.ts
+
+Notes
+
+This first export is intentionally simple.
+
+It exports Tap Monster as a standalone HTML/CSS/JS playable without Phaser so the structure is easier to understand.
+
+Real ad networks may require:
+
+- MRAID
+- click URL integration
+- file size limits
+- orientation rules
+- network-specific validation

@@ -1,6 +1,7 @@
 import { SceneKeys } from '../sceneKeys';
 import { GameColors } from '../colors';
 import { createTextButton } from '../ui/createTextButton';
+import { ExportSystem } from '../systems/ExportSystem';
 import Phaser from 'phaser';
 
 export class MenuScene extends Phaser.Scene {
@@ -80,6 +81,20 @@ export class MenuScene extends Phaser.Scene {
       textColor: '#2563eb',
       onClick: () => {
         this.scene.start(SceneKeys.GemCollector);
+      },
+    });
+
+    createTextButton(this, {
+      x: width / 2,
+      y: 555,
+      width: 260,
+      height: 46,
+      label: 'Export Tap Monster ZIP',
+      backgroundColor: GameColors.green,
+      textColor: '#0f172a',
+      fontSize: '15px',
+      onClick: () => {
+        void ExportSystem.exportTapMonsterPlayable();
       },
     });
 

@@ -2,6 +2,29 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.6.0] - Export HTML5 Playable
+
+### Added
+
+- Added JSZip dependency.
+- Added ExportSystem for creating downloadable playable ZIP files.
+- Added Tap Monster standalone export.
+- Added exported `index.html`.
+- Added exported `style.css`.
+- Added exported `playable.js`.
+- Added exported `README_EXPORT.txt`.
+- Added Export Tap Monster ZIP button to the main menu.
+
+### Changed
+
+- Main menu now includes a playable export action.
+
+### Notes
+
+- This version introduces the first HTML5 playable export workflow.
+- The exported Tap Monster playable is standalone and can run by opening `index.html`.
+- The current export is intentionally simple and does not yet include full ad network SDK or MRAID integration.
+
 ## [0.5.0] - Gem Collector Game
 
 ### Added
