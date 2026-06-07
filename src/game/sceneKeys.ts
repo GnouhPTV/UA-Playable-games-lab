@@ -3,5 +3,6 @@ export const SceneKeys = {
   TapMonster: 'TapMonsterScene',
   RunnerGate: 'RunnerGateScene',
   MergeCannon: 'MergeCannonScene',
+  GemCollector: 'GemCollectorScene',
   EndCard: 'EndCardScene',
 } as const;

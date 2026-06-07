@@ -4,6 +4,7 @@ import { TapMonsterScene } from './scenes/TapMonsterScene';
 import { EndCardScene } from './scenes/EndCardScene';
 import { RunnerGateScene } from './scenes/RunnerGateScene';
 import { MergeCannonScene } from './scenes/MergeCannonScene';
+import { GemCollectorScene } from './scenes/GemCollectorScene';
 
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -11,5 +12,12 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
   height: 640,
   parent: 'game-container',
   backgroundColor: '#111827',
-  scene: [MenuScene, TapMonsterScene, RunnerGateScene, MergeCannonScene, EndCardScene],
+  scene: [
+    MenuScene,
+    TapMonsterScene,
+    RunnerGateScene,
+    MergeCannonScene,
+    GemCollectorScene,
+    EndCardScene,
+  ],
 };

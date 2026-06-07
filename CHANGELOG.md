@@ -2,6 +2,35 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.5.0] - Gem Collector Game
+
+### Added
+
+- Added Gem Collector playable game scene.
+- Added collectible gem objects.
+- Added random gem spawning inside the play area.
+- Added gem values such as `+2`, `+5`, `+10`, and `+20`.
+- Added tap/click collection interaction.
+- Added collected gems score.
+- Added target gem score condition.
+- Added countdown timer.
+- Added gem respawn system.
+- Added floating reward text when gems are collected.
+- Added collection animation when gems disappear.
+- Added End Card flow for Gem Collector.
+- Added replay support for Gem Collector through shared EndCardScene.
+
+### Changed
+
+- Updated main menu so Gem Collector button opens the playable game.
+- Updated Phaser scene configuration to include GemCollectorScene.
+- Updated SceneKeys to include GemCollector.
+- Reused shared UI helpers for Gem Collector buttons and floating text.
+
+### Notes
+
+- This version introduces collectible objects, respawn logic, target score conditions, and another complete playable ad prototype.
+
 ## [0.4.5] - Refactor & Architecture
 
 ### Added

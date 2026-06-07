@@ -215,3 +215,117 @@ Before refactor:
 ```ts
 this.scene.start('MenuScene');
 ```
+
+After refactor:
+
+```ts
+this.scene.start(SceneKeys.Menu);
+```
+
+This makes scene navigation safer and easier to update.
+
+Before refactor, each scene had its own button creation code.
+After refactor, scenes can use:
+
+```ts
+createTextButton(this, {
+  x,
+  y,
+  width,
+  height,
+  label,
+  backgroundColor,
+  textColor,
+  onClick,
+});
+```
+
+Concepts Learned:
+
+- Constants
+- Helper functions
+- Code reuse
+- DRY principle
+- Scene key management
+- Basic game architecture
+
+## v0.5.0 - Gem Collector Game
+
+Gem Collector is the fourth playable ad prototype in this project.
+
+### Gameplay Flow
+
+1. The player opens the main menu.
+2. The player chooses **Gem Collector**.
+3. Gems appear randomly inside the collect area.
+4. The player taps/clicks gems to collect them.
+5. Each gem gives a different value, such as `+2`, `+5`, `+10`, or `+20`.
+6. The collected gem score increases.
+7. Collected gems disappear with an animation.
+8. New gems respawn over time.
+9. If the player reaches the target gem score, the game shows the end card.
+10. If the timer reaches zero, the game also shows the end card.
+11. The player can click:
+
+- **View Portfolio**
+- **Play Again**
+- **Menu**
+
+### Concepts Learned
+
+- Collectible object system
+- Tap/click collection mechanic
+- Random object spawning
+- Object respawn with timer events
+- Target score win condition
+- Countdown timer lose/end condition
+- Floating reward text
+- Object removal after collection
+- Reusing EndCardScene for another playable game
+- Using shared UI helpers such as `createTextButton` and `showFloatingText`
+
+### Important Files
+
+src/game/scenes/MenuScene.ts
+src/game/scenes/GemCollectorScene.ts
+src/game/scenes/EndCardScene.ts
+src/game/config.ts
+src/game/sceneKeys.ts
+src/game/ui/showFloatingText.ts
+src/game/ui/createTextButton.ts
+
+### Study Notes
+
+`GemCollectorScene.ts` contains the main collectible gameplay logic.
+
+Important functions:
+
+create()
+createPlayArea()
+createHud()
+startGemSpawner()
+spawnGem()
+collectGem()
+removeGem()
+startCountdown()
+endGame()
+createBackButton()
+
+The gem data structure is:
+
+type GemData = {
+id: string;
+value: number;
+body: Phaser.GameObjects.Rectangle;
+label: Phaser.GameObjects.Text;
+};
+
+This means each gem has both visual objects and gameplay data.
+
+The win condition is:
+
+if (this.collectedGems >= this.targetGems) {
+this.endGame("Target Reached!");
+}
+
+This is a common playable ads mechanic because it gives the user a clear short-term goal.

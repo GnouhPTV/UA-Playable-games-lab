@@ -79,7 +79,7 @@ export class MenuScene extends Phaser.Scene {
       backgroundColor: GameColors.white,
       textColor: '#2563eb',
       onClick: () => {
-        console.log('Gem Collector coming soon');
+        this.scene.start(SceneKeys.GemCollector);
       },
     });
 
