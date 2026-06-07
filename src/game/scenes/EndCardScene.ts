@@ -2,13 +2,7 @@ import Phaser from 'phaser';
 import { SceneKeys } from '../sceneKeys';
 import { GameColors } from '../colors';
 import { createTextButton } from '../ui/createTextButton';
-
-type EndCardData = {
-  finalScore?: number;
-  title?: string;
-  message?: string;
-  replayScene?: string;
-};
+import type { EndCardData } from '../types/playable';
 
 export class EndCardScene extends Phaser.Scene {
   private finalScore = 0;

@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { SceneKeys } from '../sceneKeys';
+import { startEndCard } from '../framework/startEndCard';
 
 export class TapMonsterScene extends Phaser.Scene {
   private score = 0;
@@ -204,7 +205,7 @@ export class TapMonsterScene extends Phaser.Scene {
     this.monster.setVisible(false);
 
     // Move to EndCardScene and pass the final score
-    this.scene.start(SceneKeys.EndCard, {
+    startEndCard(this, {
       finalScore: this.score,
       replayScene: SceneKeys.TapMonster,
     });

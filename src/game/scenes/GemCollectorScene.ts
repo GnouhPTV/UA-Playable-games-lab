@@ -3,6 +3,7 @@ import { SceneKeys } from '../sceneKeys';
 import { GameColors } from '../colors';
 import { createTextButton } from '../ui/createTextButton';
 import { showFloatingText } from '../ui/showFloatingText';
+import { startEndCard } from '../framework/startEndCard';
 
 type GemData = {
   id: string;
@@ -254,7 +255,7 @@ export class GemCollectorScene extends Phaser.Scene {
     }
 
     this.time.delayedCall(350, () => {
-      this.scene.start(SceneKeys.EndCard, {
+      startEndCard(this, {
         finalScore: this.collectedGems,
         title: reason === 'Target Reached!' ? 'Target Reached!' : "Time's Up!",
         message: `Collected Gems: ${this.collectedGems} / ${this.targetGems}`,

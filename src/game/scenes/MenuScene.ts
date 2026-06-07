@@ -1,8 +1,9 @@
+import Phaser from 'phaser';
 import { SceneKeys } from '../sceneKeys';
 import { GameColors } from '../colors';
 import { createTextButton } from '../ui/createTextButton';
 import { ExportSystem } from '../systems/ExportSystem';
-import Phaser from 'phaser';
+import { PlayableGameRegistry } from '../gameRegistry';
 
 export class MenuScene extends Phaser.Scene {
   constructor() {
@@ -13,80 +14,68 @@ export class MenuScene extends Phaser.Scene {
     const width = this.scale.width;
     const height = this.scale.height;
 
-    // Background
-    this.add.rectangle(width / 2, height / 2, width, height, 800080);
+    this.add.rectangle(width / 2, height / 2, width, height, GameColors.blueDark);
 
-    // Title
     this.add
-      .text(width / 2, 120, 'UA Playable Games Lab', {
-        fontSize: '26px',
+      .text(width / 2, 74, 'UA Playable Games Lab', {
+        fontSize: '25px',
         color: '#ffffff',
         fontStyle: 'bold',
       })
       .setOrigin(0.5);
 
     this.add
-      .text(width / 2, 155, 'Build playable ads step by step', {
-        fontSize: '16px',
+      .text(width / 2, 108, 'Build playable ads step by step', {
+        fontSize: '15px',
         color: '#dbeafe',
       })
       .setOrigin(0.5);
 
-    createTextButton(this, {
-      x: width / 2,
-      y: 240,
-      width: 260,
-      height: 56,
-      label: 'Tap Monster Game',
-      backgroundColor: GameColors.white,
-      textColor: '#2563eb',
-      onClick: () => {
-        this.scene.start(SceneKeys.TapMonster);
-      },
-    });
+    this.createGameButtons(width);
+    this.createExportButton(width);
 
-    createTextButton(this, {
-      x: width / 2,
-      y: 320,
-      width: 260,
-      height: 56,
-      label: 'Runner Gate',
-      backgroundColor: GameColors.white,
-      textColor: '#2563eb',
-      onClick: () => {
-        this.scene.start(SceneKeys.RunnerGate);
-      },
-    });
+    this.add
+      .text(width / 2, 620, 'v0.8.0 - Playable Framework', {
+        fontSize: '12px',
+        color: '#bfdbfe',
+      })
+      .setOrigin(0.5);
+  }
 
-    createTextButton(this, {
-      x: width / 2,
-      y: 400,
-      width: 260,
-      height: 56,
-      label: 'Merge Cannon',
-      backgroundColor: GameColors.white,
-      textColor: '#2563eb',
-      onClick: () => {
-        this.scene.start(SceneKeys.MergeCannon);
-      },
-    });
+  private createGameButtons(width: number) {
+    const startY = 175;
+    const gap = 70;
 
-    createTextButton(this, {
-      x: width / 2,
-      y: 480,
-      width: 260,
-      height: 56,
-      label: 'Gem Collector',
-      backgroundColor: GameColors.white,
-      textColor: '#2563eb',
-      onClick: () => {
-        this.scene.start(SceneKeys.GemCollector);
-      },
-    });
+    PlayableGameRegistry.forEach((game, index) => {
+      const y = startY + index * gap;
 
+      createTextButton(this, {
+        x: width / 2,
+        y,
+        width: 260,
+        height: 54,
+        label: game.title,
+        backgroundColor: GameColors.white,
+        textColor: '#2563eb',
+        fontSize: '18px',
+        onClick: () => {
+          this.scene.start(game.sceneKey);
+        },
+      });
+
+      this.add
+        .text(width / 2, y + 34, `${game.version} • ${game.mechanics.join(', ')}`, {
+          fontSize: '10px',
+          color: '#dbeafe',
+        })
+        .setOrigin(0.5);
+    });
+  }
+
+  private createExportButton(width: number) {
     createTextButton(this, {
       x: width / 2,
-      y: 555,
+      y: 490,
       width: 260,
       height: 46,
       label: 'Export Tap Monster ZIP',
@@ -97,12 +86,5 @@ export class MenuScene extends Phaser.Scene {
         void ExportSystem.exportTapMonsterPlayable();
       },
     });
-
-    this.add
-      .text(width / 2, 600, 'v0.1.0 - Project Foundation', {
-        fontSize: '16px',
-        color: '#dbeafe',
-      })
-      .setOrigin(0.5);
   }
 }

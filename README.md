@@ -18,6 +18,7 @@ This project contains multiple small playable ad prototypes designed to help me 
 | v0.5.0  | Gem Collector Game      | Done        |
 | v0.6.0  | Export HTML5 Playable   | Done        |
 | v0.7.0  | Portfolio Polish        | In Progress |
+| v0.7.0  | Playable Framework      | Done        |
 
 ---
 
@@ -295,12 +296,12 @@ tap-monster-playable.zip
 Scene names are stored in one place:
 
 ```ts
-SceneKeys.Menu
-SceneKeys.TapMonster
-SceneKeys.RunnerGate
-SceneKeys.MergeCannon
-SceneKeys.GemCollector
-SceneKeys.EndCard
+SceneKeys.Menu;
+SceneKeys.TapMonster;
+SceneKeys.RunnerGate;
+SceneKeys.MergeCannon;
+SceneKeys.GemCollector;
+SceneKeys.EndCard;
 ```
 
 This avoids hardcoded string mistakes.
@@ -310,11 +311,11 @@ This avoids hardcoded string mistakes.
 Colors are stored in `GameColors`:
 
 ```ts
-GameColors.background
-GameColors.green
-GameColors.blue
-GameColors.yellow
-GameColors.red
+GameColors.background;
+GameColors.green;
+GameColors.blue;
+GameColors.yellow;
+GameColors.red;
 ```
 
 This makes the code easier to read.
@@ -324,8 +325,8 @@ This makes the code easier to read.
 Reusable helper functions:
 
 ```ts
-createTextButton()
-showFloatingText()
+createTextButton();
+showFloatingText();
 ```
 
 These reduce repeated code across scenes.
@@ -424,3 +425,49 @@ This project is for learning and portfolio purposes only.
 It does not use copyrighted game assets and does not copy any commercial game. The playable prototypes use simple original shapes and placeholder visuals.
 
 Real ad network deployment may require extra work such as MRAID integration, click tracking, file size limits, orientation rules, and network-specific QA.
+
+---
+
+## v0.8.0 - Playable Framework
+
+This version improves the internal architecture of the project.
+
+### What Changed
+
+- Added shared playable game types.
+- Added a central `PlayableGameRegistry`.
+- Updated the main menu to render game buttons from the registry.
+- Added shared `startEndCard()` framework helper.
+- Reused shared end card navigation across all playable games.
+
+### Why This Matters
+
+Before this version, each game button was hardcoded in `MenuScene.ts`.
+
+After this version, games are defined in one central registry:
+
+```ts
+export const PlayableGameRegistry = [
+  {
+    id: 'tap-monster',
+    title: 'Tap Monster',
+    sceneKey: SceneKeys.TapMonster,
+    version: 'v0.2.0',
+    mechanics: ['Tap', 'Score', 'Timer', 'End Card', 'CTA'],
+    status: 'done',
+  },
+];
+```
+
+The menu can loop through this registry and automatically create buttons.
+
+This makes the project easier to extend when adding new playable ad prototypes.
+
+### Concepts Learned
+
+- Registry pattern
+- Shared types
+- Centralized game metadata
+- Framework helper functions
+- Data-driven menu rendering
+- Cleaner scene navigation

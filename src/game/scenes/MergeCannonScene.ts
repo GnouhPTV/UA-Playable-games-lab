@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { SceneKeys } from '../sceneKeys';
+import { startEndCard } from '../framework/startEndCard';
 
 type SlotData = {
   index: number;
@@ -698,7 +699,7 @@ export class MergeCannonScene extends Phaser.Scene {
 
     // Small delay so the player can see the last feedback
     this.time.delayedCall(500, () => {
-      this.scene.start(SceneKeys.EndCard, {
+      startEndCard(this, {
         finalScore: this.gems,
         title: reason === "Time's Up!" ? 'Defense Complete!' : 'Base Destroyed!',
         message: `Coins: ${this.coins} | Gems: ${this.gems}`,

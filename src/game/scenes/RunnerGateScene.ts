@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { SceneKeys } from '../sceneKeys';
+import { startEndCard } from '../framework/startEndCard';
 
 type GateValue = '+10' | '+20' | '+50' | 'x2' | '-5';
 
@@ -353,7 +354,7 @@ export class RunnerGateScene extends Phaser.Scene {
     this.spawnEvent?.remove(false);
     this.countdownEvent?.remove(false);
 
-    this.scene.start(SceneKeys.EndCard, {
+    startEndCard(this, {
       finalScore: this.score,
       title: 'Runner Finished!',
       message: 'You chose gates and changed your score.',

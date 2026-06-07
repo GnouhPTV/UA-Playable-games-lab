@@ -2,6 +2,26 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.8.0] - Playable Framework
+
+### Added
+
+- Added shared playable game types.
+- Added central PlayableGameRegistry.
+- Added framework helper for starting EndCardScene.
+- Added data-driven menu rendering from the game registry.
+
+### Changed
+
+- Refactored MenuScene to generate game buttons from PlayableGameRegistry.
+- Refactored playable scenes to use shared startEndCard helper.
+- Improved internal architecture for adding future playable games.
+
+### Notes
+
+- This version does not add a new game.
+- The focus is framework structure and maintainability.
+
 ## [0.7.0] - Portfolio Polish
 
 ### Added
