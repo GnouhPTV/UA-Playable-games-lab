@@ -8,17 +8,17 @@ This project contains multiple small playable ad prototypes designed to help me 
 
 ## Project Status
 
-| Version | Feature                 | Status      |
-| ------- | ----------------------- | ----------- |
-| v0.1.0  | Project Foundation      | Done        |
-| v0.2.0  | Tap Monster Game        | Done        |
-| v0.3.0  | Runner Gate Game        | Done        |
-| v0.4.0  | Merge Cannon Game       | Done        |
-| v0.4.5  | Refactor & Architecture | Done        |
-| v0.5.0  | Gem Collector Game      | Done        |
-| v0.6.0  | Export HTML5 Playable   | Done        |
-| v0.7.0  | Portfolio Polish        | In Progress |
-| v0.7.0  | Playable Framework      | Done        |
+| Version | Feature                 | Status |
+| ------- | ----------------------- | ------ |
+| v0.1.0  | Project Foundation      | Done   |
+| v0.2.0  | Tap Monster Game        | Done   |
+| v0.3.0  | Runner Gate Game        | Done   |
+| v0.4.0  | Merge Cannon Game       | Done   |
+| v0.4.5  | Refactor & Architecture | Done   |
+| v0.5.0  | Gem Collector Game      | Done   |
+| v0.6.0  | Export HTML5 Playable   | Done   |
+| v0.7.0  | Portfolio Polish        | Done   |
+| v0.7.0  | Playable Framework      | Done   |
 
 ---
 
