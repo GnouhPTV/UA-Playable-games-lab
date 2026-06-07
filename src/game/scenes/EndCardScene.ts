@@ -2,10 +2,16 @@ import Phaser from 'phaser';
 
 type EndCardData = {
   finalScore?: number;
+  title?: string;
+  message?: string;
+  replayScene?: string;
 };
 
 export class EndCardScene extends Phaser.Scene {
   private finalScore = 0;
+  private title = 'Great Job!';
+  private message = 'You finished the playable!';
+  private replayScene = 'TapMonsterScene';
   private ctaUrl = 'https://github.com/GnouhPTV/UA-Playable-games-lab';
 
   constructor() {
@@ -13,10 +19,12 @@ export class EndCardScene extends Phaser.Scene {
   }
 
   init(data: EndCardData) {
-    // init() runs before create().
-    // We use it to receive data from another scene.
-    // In this case, TapMonsterScene sends the final score here.
+    // init() nhận dữ liệu từ scene trước.
+    // Ví dụ TapMonsterScene hoặc RunnerGateScene có thể gửi finalScore sang đây.
     this.finalScore = data.finalScore ?? 0;
+    this.title = data.title ?? 'Great Job!';
+    this.message = data.message ?? 'You finished the playable!';
+    this.replayScene = data.replayScene ?? 'TapMonsterScene';
   }
 
   create() {
@@ -26,7 +34,7 @@ export class EndCardScene extends Phaser.Scene {
     // Background
     this.add.rectangle(width / 2, height / 2, width, height, 0x0f172a);
 
-    // Decorative success circle
+    // Success icon
     this.add.circle(width / 2, 145, 58, 0x22c55e);
     this.add.circle(width / 2, 145, 45, 0x86efac);
 
@@ -38,16 +46,15 @@ export class EndCardScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Main title
     this.add
-      .text(width / 2, 240, 'Great Job!', {
-        fontSize: '36px',
+      .text(width / 2, 240, this.title, {
+        fontSize: '34px',
         color: '#ffffff',
         fontStyle: 'bold',
+        align: 'center',
       })
       .setOrigin(0.5);
 
-    // Final score
     this.add
       .text(width / 2, 295, `Final Score: ${this.finalScore}`, {
         fontSize: '24px',
@@ -56,26 +63,25 @@ export class EndCardScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Short marketing-style message
     this.add
-      .text(width / 2, 335, 'This is my first playable ad prototype.', {
+      .text(width / 2, 335, this.message, {
         fontSize: '15px',
         color: '#cbd5e1',
         align: 'center',
+        wordWrap: {
+          width: 300,
+        },
       })
       .setOrigin(0.5);
 
-    // CTA button
     this.createButton(width / 2, 420, 'View Portfolio', 0x22c55e, '#0f172a', () => {
       this.handleCtaClick();
     });
 
-    // Replay button
     this.createButton(width / 2, 490, 'Play Again', 0xffffff, '#0f172a', () => {
-      this.scene.start('TapMonsterScene');
+      this.scene.start(this.replayScene);
     });
 
-    // Menu button
     this.createButton(width / 2, 560, 'Menu', 0x334155, '#ffffff', () => {
       this.scene.start('MenuScene');
     });
@@ -100,7 +106,6 @@ export class EndCardScene extends Phaser.Scene {
       })
       .setOrigin(0.5);
 
-    // Small hover/tap feedback
     button.on('pointerdown', () => {
       this.tweens.add({
         targets: button,
@@ -114,8 +119,8 @@ export class EndCardScene extends Phaser.Scene {
   }
 
   private handleCtaClick() {
-    // In a real ad network, CTA handling may use MRAID or network-specific APIs.
-    // For learning, we open a placeholder URL.
+    // Trong playable ads thật, CTA có thể dùng MRAID hoặc SDK của ad network.
+    // Ở project học này, ta dùng window.open để dễ hiểu.
     window.open(this.ctaUrl, '_blank');
   }
 }

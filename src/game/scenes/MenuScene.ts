@@ -33,7 +33,7 @@ export class MenuScene extends Phaser.Scene {
     });
 
     this.createMenuButton(width / 2, 320, 'Runner Gate', () => {
-      console.log('Runner Gate clicked');
+      this.scene.start('RunnerGateScene');
     });
 
     this.createMenuButton(width / 2, 400, 'Merge Cannon', () => {
