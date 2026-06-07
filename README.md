@@ -112,3 +112,83 @@ src/game/scenes/RunnerGateScene.ts
 src/game/scenes/EndCardScene.ts
 src/game/config.ts
 ```
+
+## v0.4.0 - Merge Cannon Game
+
+Merge Cannon is the third playable ad prototype in this project.
+
+### Gameplay Flow
+
+1. The player opens the main menu.
+2. The player chooses **Merge Cannon**.
+3. The game starts with two level-1 cannons.
+4. The player can drag one cannon onto another cannon of the same level.
+5. Same-level cannons merge into a higher-level cannon.
+6. Enemies spawn in the enemy path.
+7. Cannons automatically shoot projectiles at the nearest enemy.
+8. Enemies lose HP when hit by projectiles.
+9. When an enemy is defeated, the player earns coins and gems.
+10. If enemies reach the defense line, Base HP decreases.
+11. When the timer ends or Base HP reaches zero, the game shows the end card.
+12. The player can click:
+
+- **View Portfolio**
+- **Play Again**
+- **Menu**
+
+### Concepts Learned
+
+- Drag and drop interaction
+- Merge mechanic
+- Slot-based object placement
+- Enemy spawning
+- Enemy HP system
+- Auto shooting system
+- Projectile movement toward a target
+- Damage calculation
+- Reward system with coins and gems
+- Timer-based game ending
+- Base HP loss condition
+- Reusing EndCardScene for multiple playable games
+
+### Important Files
+
+src/game/scenes/MenuScene.ts
+src/game/scenes/MergeCannonScene.ts
+src/game/scenes/EndCardScene.ts
+src/game/config.ts
+
+### Study Notes
+
+`MergeCannonScene.ts` contains the main merge-defense gameplay logic.
+
+Important functions:
+
+create()
+createSlots()
+addCannon()
+handleCannonDrop()
+findMergeTarget()
+mergeCannons()
+startEnemySpawner()
+spawnEnemy()
+updateEnemies()
+startCannonShooting()
+fireAllCannons()
+fireCannon()
+findNearestEnemy()
+updateProjectiles()
+damageEnemy()
+handleEnemyKilled()
+handleEnemyReachedBase()
+endGame()
+
+This game combines several important playable ads mechanics: drag/drop, merge, automatic combat, rewards, timer, and end card flow.
+
+The cannon damage is based on cannon level:
+
+const damage = cannon.level \* 8;
+
+Higher-level cannons are stronger, which makes the merge mechanic meaningful.
+
+The exported or final playable flow should be short, visual, and easy to understand within a few seconds.

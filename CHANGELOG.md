@@ -2,6 +2,42 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.4.0] - Merge Cannon Game
+
+### Added
+
+- Added Merge Cannon playable game scene.
+- Added 6 cannon slots.
+- Added draggable cannon objects.
+- Added same-level cannon merge mechanic.
+- Added cannon level system.
+- Added cannon color changes by level.
+- Added Add/Buy Cannon button.
+- Added enemy spawning system.
+- Added enemy HP display.
+- Added enemy movement toward the defense line.
+- Added Base HP system.
+- Added automatic cannon shooting.
+- Added projectile movement toward nearest enemy.
+- Added damage system.
+- Added enemy defeat handling.
+- Added coins and gems reward system.
+- Added countdown timer.
+- Added game ending when timer reaches zero.
+- Added game ending when Base HP reaches zero.
+- Added End Card flow for Merge Cannon.
+- Added replay support for Merge Cannon through shared EndCardScene.
+
+### Changed
+
+- Updated main menu so Merge Cannon button opens the playable game.
+- Updated Phaser scene configuration to include MergeCannonScene.
+- Improved EndCardScene reuse across Tap Monster, Runner Gate, and Merge Cannon.
+
+### Notes
+
+- This version introduces drag-and-drop, merge mechanics, enemy HP, auto shooting, projectile targeting, rewards, timer, and defense-based game ending.
+
 ## [0.3.0] - Runner Gate Game
 
 ### Added

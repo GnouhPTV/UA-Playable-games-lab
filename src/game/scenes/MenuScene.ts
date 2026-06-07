@@ -37,7 +37,7 @@ export class MenuScene extends Phaser.Scene {
     });
 
     this.createMenuButton(width / 2, 400, 'Merge Cannon', () => {
-      console.log('Merge Cannon clicked');
+      this.scene.start('MergeCannonScene');
     });
 
     this.createMenuButton(width / 2, 480, 'Gem Collector', () => {
