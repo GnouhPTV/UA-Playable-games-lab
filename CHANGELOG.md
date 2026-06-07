@@ -2,6 +2,26 @@
 
 All notable changes to UA Playable Games Lab will be documented in this file.
 
+## [0.9.0] - MRAID & Ad Network Notes
+
+### Added
+
+- Added MRAID learning notes.
+- Added playable ads network checklist.
+- Added playable export notes.
+- Added CTA behavior notes for local and MRAID environments.
+- Added QA checklist for exported playable ads.
+- Added future export improvement notes.
+
+### Changed
+
+- Updated README with MRAID and ad network learning section.
+
+### Notes
+
+- This version focuses on documentation and production-readiness knowledge.
+- No gameplay logic was changed.
+
 ## [0.8.0] - Playable Framework
 
 ### Added

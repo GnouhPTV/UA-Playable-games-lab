@@ -8,17 +8,18 @@ This project contains multiple small playable ad prototypes designed to help me 
 
 ## Project Status
 
-| Version | Feature                 | Status |
-| ------- | ----------------------- | ------ |
-| v0.1.0  | Project Foundation      | Done   |
-| v0.2.0  | Tap Monster Game        | Done   |
-| v0.3.0  | Runner Gate Game        | Done   |
-| v0.4.0  | Merge Cannon Game       | Done   |
-| v0.4.5  | Refactor & Architecture | Done   |
-| v0.5.0  | Gem Collector Game      | Done   |
-| v0.6.0  | Export HTML5 Playable   | Done   |
-| v0.7.0  | Portfolio Polish        | Done   |
-| v0.7.0  | Playable Framework      | Done   |
+| Version | Feature                  | Status |
+| ------- | ------------------------ | ------ |
+| v0.1.0  | Project Foundation       | Done   |
+| v0.2.0  | Tap Monster Game         | Done   |
+| v0.3.0  | Runner Gate Game         | Done   |
+| v0.4.0  | Merge Cannon Game        | Done   |
+| v0.4.5  | Refactor & Architecture  | Done   |
+| v0.5.0  | Gem Collector Game       | Done   |
+| v0.6.0  | Export HTML5 Playable    | Done   |
+| v0.7.0  | Portfolio Polish         | Done   |
+| v0.8.0  | Playable Framework       | Done   |
+| v0.9.0  | MRAID / Ad Network Notes | Done   |
 
 ---
 
@@ -471,3 +472,28 @@ This makes the project easier to extend when adding new playable ad prototypes.
 - Framework helper functions
 - Data-driven menu rendering
 - Cleaner scene navigation
+
+## v0.9.0 - MRAID & Ad Network Notes
+
+This version adds documentation about how playable ads are prepared for real ad network environments.
+
+### Added Docs
+
+- `docs/mraid-notes.md`
+- `docs/ad-network-checklist.md`
+- `docs/playable-export-notes.md`
+
+### What I Learned
+
+- MRAID is used by mobile rich media ads running inside mobile apps.
+- Local `window.open()` CTA behavior may need to become `mraid.open()` in real ad environments.
+- Playable ads need QA before submission.
+- File size, orientation, CTA, replay, and end card behavior should be checked before export.
+- Different ad networks may have different specifications.
+
+### Important Note
+
+This project is still a learning project.
+
+The exported playable currently runs locally and demonstrates the structure of an HTML5 playable ad.  
+Production deployment may require MRAID, network-specific validation, and file size optimization.
