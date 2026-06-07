@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef3ff;
+  color: #111827;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-shell {
+  text-align: center;
+}
+
+.game-title {
+  margin-bottom: 16px;
+}
+
+#game-container {
+  width: 360px;
+  height: 640px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.25);
+  background: #111827;
+}
